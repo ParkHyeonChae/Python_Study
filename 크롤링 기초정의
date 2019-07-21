@@ -1,0 +1,44 @@
+크롤링 vs 스크래핑 차이 : 데이터를 수집하는 것이 목적!
+
+Crawling : 인터네상의 웹사이트를 방문해 정보를 수집하고 색인하는 행위 주기적, 또는 무작위로 자신이 정해놓은 규칙에 맞게 방대한 범위 내에서 데이터의 양을 우선으로 하며 일정한 시간 간격으로 데이터를 규칙적으로 수집
+Scraping : 특정 웹사이트의 특정 데이터를 추출하고 가공하는 작업, 브라우저의 보이는 데이터의 타겟이 명확함 (실시간 검색어 순위 등), 웹사이트의 데이터를 수집하는것은 맞지만 범위가 좁음
+
+Crawling > Scraping (범위적인 측면)
+
+크롬 개발자 도구 (도구-더보기-개발자도구) (window 경우 인터넷 브라우저에서 F12)
+Eelments Tab - CSS Selector
+Network Tab - HTTP 처리과정
+
+Select an element in the page to inspect it 클릭시 원하는 소스를 추적
+추적후 우클릭 -> Copy -> Copy Selector, Copy XPath 클릭 시 그 링크가 가져올 데이터의 경로가 됨 (HTML TAG)
+
+Crawling을 위한 모듈 설치
+ 1. cd C:\Users\HC\AppData\Local\Programs\Python\Python37-32 (파이썬 설치경로)
+ 2. C:\Users\HC\AppData\Local\Programs\Python\Python37-32\Scripts
+ 3. pip install requests
+ 4. pip install beautifulsoup4
+ 5. pip install selenium
+------------------------------------------------------------------------------------------------------------------------------
+사전기초지식
+1. 대상 웹 페이지 조건 확인 - robots.txt (크롤링 하고자하는 웹페이지 /robots.txt 입력)
+ 1.1 https://daum.net/robots.txt
+     User-agent: *
+     Disallow: /
+     (크롤링 불허용)
+
+ 1.2 www.hanbit.co.kr/robots.txt
+     User-agent: *
+     Disallow: /hb_admin/
+     Disallow: /myhanbit/
+     (Disallolw의 경로 외의 크롤링은 허용)
+
+https://blog.naver.com/http-log/221104827805 (robots 설명 관련 블로그)
+
+2. 크롤러 분류 - 상태유무, javascript 유무 (로그인을 하지 않은 상태에서도 볼수 있는지) (selenium 사용)
+
+3. Request 요청 주의 할점 - 서부 부하 고려 (상대 사이트의 예의를 지키자)
+ ex : 네이버 신문의 1초에 100개 씩 가져오는 크롤러를 만든다 -> 서버 부하를 고려해야 함 (사람이 보는 것처럼 만들어야 함) (for 문 등을 사용하여 할시 ip차단 당할 위험)
+
+4. 콘텐츠 저작권 문제 (이미지 크롤링 등 사용시 문제, 저작권 확인 필수, pdf, 음성, 이미지)
+
+5. 페이지 구조 변경 가능성 숙지 (매일 실시간 급상승 검색어 순위를 가져오는 크롤러를 만들었을시 웹사이트의 selector가 변경될 수 가능성이 있음)
