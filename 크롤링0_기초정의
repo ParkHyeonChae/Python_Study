@@ -44,8 +44,19 @@ https://blog.naver.com/http-log/221104827805 (robots 설명 관련 블로그)
 5. 페이지 구조 변경 가능성 숙지 (매일 실시간 급상승 검색어 순위를 가져오는 크롤러를 만들었을시 웹사이트의 selector가 변경될 수 가능성이 있음)
 ----------------------------------------------------
 
-개발환경, 가상환경 설정
- 1.1 cmd 관리자권한으로 실행 -> cd 경로 입력 -> python -m venv 폴더이름 입력
+★ 1.크롤링을 위한 개발환경, 가상환경 설정
+ 1.1 cmd '관리자권한'으로 실행 -> cd 경로 입력 -> python -m venv 폴더이름 입력 (크롤링을 위한 폴더 생성)
  1.2 cd 폴더이름 -> cd Scripts -> activate -> code 
  1.3 ctrl + shift + p -> python Select Interpreter -> 방금 생성한 폴더 경로 지정
  1.4 run task 설정
+ 
+ ★ 2.모듈 설치
+ 2.1 cmd '관리자권한'으로 실행 -> cd 경로(크롤링폴더경로 or 파이썬설치경로) 입력 -> cd Scirpts
+ 2.2 pip install --upgrade pip (pip을 최신버전으로 업그레이드, 오류발생시 관리자권한으로 cmd재실행)
+   - pip install requests
+   - pip install lxml
+   - pip install cssselect
+   - pip install beautifulsoup4
+   - pip install selenium
+
+2.3 설치 후 pip list를 통하여 확인 후 activate -> code -> 경로설정과 run task 설정
